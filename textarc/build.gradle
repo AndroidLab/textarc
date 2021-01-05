@@ -1,0 +1,60 @@
+plugins {
+    id 'com.android.library'
+}
+
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'textarc'
+
+    publishedGroupId = 'io.github.a.lab.develop'
+    libraryName = 'textarc'
+    artifact = 'textarc'
+
+    libraryDescription = 'Library for creating arc text'
+
+    siteUrl = 'https://github.com/AndroidLab/textarc'
+    gitUrl = 'https://github.com/AndroidLab/textarc'
+
+    libraryVersion = '1.0.0'
+
+    developerId = 'ALab'
+    developerName = 'Aleksandr Aleksandrov'
+    developerEmail = 'a.lab.develop@mail.ru'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
+android {
+    compileSdkVersion 30
+
+    defaultConfig {
+        minSdkVersion 23
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.2.1'
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+}

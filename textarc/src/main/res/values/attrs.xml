@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="TextArc">
+
+        <attr name="radius" format="dimension"/>
+        <attr name="center_angle" format="integer"/>
+        <attr name="text_size" format="dimension"/>
+        <attr name="text_color" format="color"/>
+        <attr name="font_family" format="reference"/>
+        <attr name="text" format="string"/>
+
+    </declare-styleable>
+
+</resources>

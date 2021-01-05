@@ -1,0 +1,3 @@
+rootProject.name = "TextArc"
+include ':app'
+include ':textarc'
