@@ -4,7 +4,7 @@ Creating a simple arc text
 
 # Preview
 
-![textarc](./app/assets/photo/Screenshot_0.jpg)
+![textarc](./app/assets/photo/screenshot_0.jpg)
 
 # To get a Git project into your build:
 
