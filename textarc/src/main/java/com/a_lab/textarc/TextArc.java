@@ -22,7 +22,7 @@ public class TextArc extends View {
     //private int sweepAngle = Integer.MIN_VALUE;
     private int centerAngle =-90;
     private float textSize = getResources().getDisplayMetrics().density * 16;
-    private String text = "Hello world";
+    private String text = "";
 
     private int textColor = Color.WHITE;
     private Typeface fontFamily;
@@ -95,7 +95,6 @@ public class TextArc extends View {
     protected void onDraw(Canvas canvas) {
         canvas.drawTextOnPath(text, pathArc, 0, 0, paintText);
     }
-
 
 
     //Устанавливаем текст
