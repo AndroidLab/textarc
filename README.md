@@ -1,4 +1,4 @@
-# TextArc v1.0.0
+# TextArc v1.0.1
 
 Creating a simple arc text
 
@@ -39,6 +39,6 @@ TextArc textArc = new TextArc(this);
 
 ```
 dependencies {
-	        implementation 'io.github.a.lab.develop:textarc:1.0.0'
+	        implementation 'io.github.a.lab.develop:textarc:1.0.1'
 	}
 ```
