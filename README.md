@@ -1,4 +1,4 @@
-# TextArc v1.0.1
+# TextArc ![Download](https://api.bintray.com/packages/winged90/maven/textarc/images/download.svg?version=1.0.2)
 
 Creating a simple arc text
 
