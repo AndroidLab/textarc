@@ -39,6 +39,6 @@ TextArc textArc = new TextArc(this);
 
 ```
 dependencies {
-	        implementation 'io.github.a.lab.develop:textarc:1.0.3'
+	        implementation 'io.github.a.lab.develop:textarc:1.0.4'
 	}
 ```
