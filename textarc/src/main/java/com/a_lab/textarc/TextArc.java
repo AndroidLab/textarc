@@ -85,10 +85,10 @@ public class TextArc extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         float textWidth = paintText.measureText(text);
-        int circumference = (int) (2 * Math.PI * radius);   //Длина окружности
+        float circumference = (float) (2 * Math.PI * radius);   //Длина окружности
 
-        int textAngle = (int) (textWidth * 360 / circumference);   //Угол занимаемый текстом
-        int startAngle = centerAngle - (textAngle / 2);
+        float textAngle = textWidth * 360 / circumference;   //Угол занимаемый текстом
+        float startAngle = centerAngle - (textAngle / 2);
 
         RectF oval = new RectF(offset, offset,radius * 2 + offset,radius * 2 + offset);
         Path pathArc = new Path();
