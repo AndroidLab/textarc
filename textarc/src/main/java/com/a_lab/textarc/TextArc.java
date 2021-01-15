@@ -27,7 +27,6 @@ public class TextArc extends View {
     private int textColor = Color.WHITE;
     private Typeface fontFamily;
 
-    private Path pathArc = new Path();
     private Paint paintText = new Paint(Paint.ANTI_ALIAS_FLAG);
     private float offset = 0;
 
@@ -80,19 +79,21 @@ public class TextArc extends View {
 
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
-        float textWidth = paintText.measureText(text);
 
+    }
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        float textWidth = paintText.measureText(text);
         int circumference = (int) (2 * Math.PI * radius);   //Длина окружности
 
         int textAngle = (int) (textWidth * 360 / circumference);   //Угол занимаемый текстом
         int startAngle = centerAngle - (textAngle / 2);
 
         RectF oval = new RectF(offset, offset,radius * 2 + offset,radius * 2 + offset);
+        Path pathArc = new Path();
         pathArc.addArc(oval, startAngle, 350);
-    }
 
-    @Override
-    protected void onDraw(Canvas canvas) {
         canvas.drawTextOnPath(text, pathArc, 0, 0, paintText);
     }
 

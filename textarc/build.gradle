@@ -15,7 +15,7 @@ ext {
     siteUrl = 'https://github.com/AndroidLab/textarc'
     gitUrl = 'https://github.com/AndroidLab/textarc'
 
-    libraryVersion = '1.0.2'
+    libraryVersion = '1.0.3'
 
     developerId = 'ALab'
     developerName = 'Aleksandr Aleksandrov'
