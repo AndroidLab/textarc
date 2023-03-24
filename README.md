@@ -1,4 +1,4 @@
-# TextArc ![Download](https://api.bintray.com/packages/winged90/maven/textarc/images/download.svg?version=1.0.2)
+# Android TextArc
 
 Creating a simple arc text
 
@@ -24,7 +24,7 @@ In xml
 ```
 
 In code
-
+java
 ```
 TextArc textArc = new TextArc(this);
         textArc.setText("Text arc that was added programmatically");
@@ -34,11 +34,29 @@ TextArc textArc = new TextArc(this);
         textArc.setTextSize(72);
         textArc.setFontFamily(ResourcesCompat.getFont(this, R.font.krabuler));
 ```
-
+Kotlin
+```
+TextArc(this).apply {
+	setText("Text arc that was added programmatically")
+	setRadius((resources.displayMetrics.density * 95).toInt())
+        setCenterAngle(-90)
+        setTextColor(R.color.blue)
+        setTextSize((resources.displayMetrics.density * 28).toInt())
+        setFontFamily(ResourcesCompat.getFont(this@MainActivity, R.font.krabuler))
+}
+```
 # To get a Git project into your build:
-
+Add it in your root build.gradle at the end of repositories
+```
+allprojects {
+	repositories {
+		...
+		maven { url 'https://jitpack.io' }
+	}
+}
+```
 ```
 dependencies {
-	        implementation 'io.github.a.lab.develop:textarc:1.0.4'
-	}
+	implementation 'com.github.AndroidLab:textarc:Tag'
+}
 ```
