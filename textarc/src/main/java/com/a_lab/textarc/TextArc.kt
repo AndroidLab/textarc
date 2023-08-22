@@ -18,6 +18,8 @@ class TextArc @JvmOverloads constructor(
     attrs,
     defStyleAttr
 ) {
+    private val rect = RectF()
+    private val path = Path()
     private var radius = 320
     //private int startAngle = Integer.MIN_VALUE;
     //private int sweepAngle = Integer.MIN_VALUE;
@@ -57,16 +59,25 @@ class TextArc @JvmOverloads constructor(
 
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
+
+    }
+
+    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec)
         offset = (textSize * 0.75f).toInt()
 
-        layoutParams.width = if (radius > 0) radius * 2 + offset * 2 else 0
-        layoutParams.height = if (radius > 0) radius * 2 + offset * 2 else 0
+        val width = if (radius > 0) radius * 2 + offset * 2 else 0
+        val height = if (radius > 0) radius * 2 + offset * 2 else 0
 
-        requestLayout()
+        setMeasuredDimension(width, height)
+    }
 
+    override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
         paintText.color = textColor
         paintText.typeface = fontFamily
         paintText.textSize = textSize.toFloat()
+
+        super.onLayout(changed, left, top, right, bottom)
     }
 
     override fun onDraw(canvas: Canvas) {
@@ -74,13 +85,15 @@ class TextArc @JvmOverloads constructor(
         val circumference = (2 * Math.PI * radius).toFloat() //Circumference length
         val textAngle = textWidth * 360 / circumference //Угол занимаемый текстом
         val startAngle = centerAngle - textAngle / 2
-        val oval = RectF(
-            offset.toFloat(), offset.toFloat(),
-            (radius * 2 + offset).toFloat(), (radius * 2 + offset).toFloat()
-        )
-        val pathArc = Path()
-        pathArc.addArc(oval, startAngle, 350f)
-        canvas.drawTextOnPath(text, pathArc, 0f, 0f, paintText)
+        val oval = rect.apply {
+            left = offset.toFloat()
+            top = offset.toFloat()
+            right = (radius * 2 + offset).toFloat()
+            bottom = (radius * 2 + offset).toFloat()
+        }
+        path.reset()
+        path.addArc(oval, startAngle, 350f)
+        canvas.drawTextOnPath(text, path, 0f, 0f, paintText)
     }
 
 
