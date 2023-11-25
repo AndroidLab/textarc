@@ -8,6 +8,7 @@
         <attr name="text_size" format="dimension"/>
         <attr name="text_color" format="color"/>
         <attr name="font_family" format="reference"/>
+        <attr name="letter_spacing" format="float"/>
         <attr name="text" format="string"/>
 
     </declare-styleable>

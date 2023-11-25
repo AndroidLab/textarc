@@ -3,6 +3,7 @@ package com.a_lab.textarc
 import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
+import android.util.Log
 import android.view.View
 import androidx.core.content.res.ResourcesCompat
 
@@ -29,6 +30,7 @@ class TextArc @JvmOverloads constructor(
 
     private var textColor = Color.WHITE
     private var fontFamily: Typeface? = null
+    private var letterSpacing: Float = 0f
 
     private val paintText = Paint(Paint.ANTI_ALIAS_FLAG)
     private var offset = 0
@@ -54,13 +56,11 @@ class TextArc @JvmOverloads constructor(
             }
         }
 
+        letterSpacing = typedArray.getFloat(R.styleable.TextArc_letter_spacing, letterSpacing)
+
         typedArray.recycle();
     }
 
-    override fun onAttachedToWindow() {
-        super.onAttachedToWindow()
-
-    }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
@@ -76,6 +76,7 @@ class TextArc @JvmOverloads constructor(
         paintText.color = textColor
         paintText.typeface = fontFamily
         paintText.textSize = textSize.toFloat()
+        paintText.letterSpacing = letterSpacing
 
         super.onLayout(changed, left, top, right, bottom)
     }
@@ -148,6 +149,15 @@ class TextArc @JvmOverloads constructor(
      */
     fun setFontFamily(fontFamily: Typeface?) {
         this.fontFamily = fontFamily
+        invalidate()
+    }
+
+    /**
+     * Sets letter spacing.
+     * @param letterSpacing Letter spacing.
+     */
+    fun setLetterSpacing(letterSpacing: Float) {
+        this.letterSpacing = letterSpacing
         invalidate()
     }
 
